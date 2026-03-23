@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesquisa Web JS - Frameworks, Deno e Bun</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <nav class="topbar">
+
+      <h1>Pesquisa Web com JavaScript</h1>
+      <a href="#conclusao">Fontes</a>
+
+    </nav>
+
+    <section class="hero-content">
+
+      <p class="eyebrow">Relatorio academico</p>
+      <h2>Principais frameworks do mercado e comparativo entre Deno e Bun</h2>
+
+      <p>
+        Esta pagina resume os frameworks mais relevantes para desenvolvimento web com JavaScript,
+        apresenta as caracteristicas de Deno e Bun, e traz uma recomendação pratica.
+      </p>
+
+    </section>
+
+  </header>
+
+  <main class="container">
+
+    <section class="panel">
+
+      <h3>1) Principais frameworks do mercado (ecosistema JavaScript)</h3>
+
+      <div class="cards-grid">
+        <article class="mini-card">
+
+          <h4>React</h4>
+          <p>Foco em componentes reutilizaveis, ecossistema muito amplo e alta adoção no mercado.</p>
+        </article>
+
+        <article class="mini-card">
+          <h4>Vue.js</h4>
+          <p>Framework progressivo, simples de aprender e com bom equilibrio entre produtividade e desempenho.</p>
+        </article>
+
+        <article class="mini-card">
+          <h4>Angular</h4>
+          <p>Framework completo para aplicacoes grandes, com arquitetura opinativa e tooling robusto.</p>
+        </article>
+
+        <article class="mini-card">
+          <h4>Svelte</h4>
+          <p>Abordagem orientada a compilação, com excelente experiencia de desenvolvimento.</p>
+        </article>
+
+        <article class="mini-card">
+
+          <h4>Next.js</h4>
+
+          <p>Framework React full-stack, com roteamento por arquivos, renderização hibrida e otimizacoes nativas.</p>
+
+        </article>
+
+      </div>
+
+      <p class="note">
+        Referencia de mercado: levantamentos como State of JS 2024 e Stack Overflow 2025 mostram React,
+        Vue e Angular entre os mais usados, com crescimento de abordagens modernas no ecossistema.
+      </p>
+
+    </section>
+
+    <section class="panel" id="deno-bun">
+
+      <h3>2) Pesquisa sobre Deno e Bun</h3>
+
+      <div class="compare-grid">
+
+        <article>
+          <h4>Deno</h4>
+
+          <ul>
+            <li>Runtime para JavaScript/TypeScript com foco em seguranca por padrao.</li>
+
+            <li>Permissoes granulares para acesso a rede, arquivos e ambiente.</li>
+
+            <li>Suporte nativo a TypeScript sem configuração extra.</li>
+
+            <li>Compatibilidade com Node e npm (incluindo imports via <code>npm:</code>).</li>
+
+            <li>Toolchain integrada: formatter, linter e test runner.</li>
+          </ul>
+
+        </article>
+
+
+        <article>
+
+
+          <h4>Bun</h4>
+
+          <ul>
+            <li>Toolkit all-in-one: runtime, package manager, test runner e bundler.</li>
+
+            <li>Grande foco em velocidade de inicialização e execução.</li>
+
+            <li>Suporte nativo a TypeScript/JSX.</li>
+
+            <li>Boa compatibilidade com Node e ecossistema npm.</li>
+
+            <li>APIs integradas para servidor HTTP, banco e utilitarios de runtime.</li>
+          </ul>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="panel highlight">
+
+      <h3>3) Framework escolhido e justificativa</h3>
+
+      <p>
+        <strong>Escolha: Next.js.</strong> Eu escolheria Next.js porque ele combina produtividade de React com
+        recursos de framework full-stack, facilitando rotas, renderização no servidor e performance sem exigir
+        muitas configuracoes manuais. Para projetos reais (portfolio, e-commerce, dashboard), isso reduz tempo
+        de entrega e melhora a experiencia final do usuario.
+      </p>
+
+    </section>
+
+    <section class="panel">
+
+      <h3>4) Entre Deno e Bun: qual eu escolheria?</h3>
+
+      <p>
+        <strong>Minha escolha geral: Bun</strong>, quando o objetivo principal for velocidade e simplicidade no dia a
+        dia.
+        Ele centraliza runtime, instalação de pacotes, testes e build em uma unica ferramenta, o que acelera muito
+        o desenvolvimento.
+      </p>
+
+      <p>
+        <strong>Quando eu escolheria Deno:</strong> cenarios com forte exigencia de seguranca por permissoes e
+        padronização
+        de ambiente, especialmente quando o controle de acesso do runtime for prioridade.
+      </p>
+
+    </section>
+
+    <h3>Fontes consultadas</h3>
+
+    <section class="panel" id="conclusao">
+      
+      <ul class="sources">
+
+        <li><a href="https://docs.deno.com/" target="_blank" rel="noreferrer">Deno Docs</a></li>
+
+        <li><a href="https://docs.deno.com/runtime/manual/getting_started/permissions" target="_blank"
+            rel="noreferrer">Deno - Security and permissions</a></li>
+
+        <li><a href="https://docs.deno.com/runtime/fundamentals/node/" target="_blank" rel="noreferrer">Deno - Node and
+            npm compatibility</a></li>
+
+        <li><a href="https://bun.com/docs" target="_blank" rel="noreferrer">Bun Docs</a></li>
+
+        <li><a href="https://bun.sh/" target="_blank" rel="noreferrer">Bun Official Site</a></li>
+
+        <li><a href="https://nextjs.org/docs" target="_blank" rel="noreferrer">Next.js Docs</a></li>
+
+        <li><a href="https://2024.stateofjs.com/pt-BR/libraries/front-end-frameworks/" target="_blank"
+            rel="noreferrer">State of JS 2024 - Front-end frameworks</a></li>
+
+        <li><a href="https://survey.stackoverflow.co/2025/technology/" target="_blank" rel="noreferrer">Stack Overflow
+            Developer Survey 2025 - Technology</a></li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>Pesquisa de Programação Web | JavaScript, Frameworks, Deno e Bun | 2026</p>
+
+  </footer>
+
+</body>
+
+</html>

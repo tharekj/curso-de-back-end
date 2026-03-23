@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeWorld</title>
+    <link rel="stylesheet" href="exercicio aula 16.css">
+</head>
+
+<body>
+
+    <button id="themeToggle" class="theme-btn">🌙</button>
+
+    <header>
+        <h1>🎬 AnimeWorld</h1>
+        <p>Assista seus animes favoritos</p>
+    </header>
+
+    <main>
+
+        <!-- FAVORITOS -->
+        <section>
+            <h2 class="section-title">❤️ Favoritos</h2>
+
+            <div class="carousel-wrapper">
+                <button class="arrow left">◀</button>
+
+                <div id="favRow" class="row"></div>
+
+                <button class="arrow right">▶</button>
+            </div>
+        </section>
+
+
+        <!-- TODOS -->
+        <section>
+            <h2 class="section-title">🎬 Todos os animes</h2>
+
+            <div class="carousel-wrapper">
+                <button class="arrow left">◀</button>
+
+                <div id="allRow" class="row">
+
+                    <div class="card">
+                        <button class="fav">❤</button>
+                        <img src="PNGs/naruto.png" alt="Naruto">
+                        <h2>Naruto</h2>
+                        <a class="btn" href="https://www.crunchyroll.com/pt-br/series/GY9PJ5KWR/naruto"
+                            target="_blank">Assistir</a>
+                    </div>
+
+                    <div class="card">
+                        <button class="fav">❤</button>
+                        <img src="PNGs/one piece.png" alt="One Piece">
+                        <h2>One Piece</h2>
+                        <a class="btn" href="https://www.crunchyroll.com/pt-br/series/GRMG8ZQZR/one-piece"
+                            target="_blank">Assistir</a>
+                    </div>
+
+                    <div class="card">
+                        <button class="fav">❤</button>
+                        <img src="PNGs/attack on titan.png" alt="Attack on Titan">
+                        <h2>Attack on Titan</h2>
+                        <a class="btn" href="https://www.crunchyroll.com/pt-br/series/GR751KNZY/attack-on-titan"
+                            target="_blank">Assistir</a>
+                    </div>
+
+                    <div class="card">
+                        <button class="fav">❤</button>
+                        <img src="PNGs/demon slayer.png" alt="Demon Slayer">
+                        <h2>Demon Slayer</h2>
+                        <a class="btn"
+                            href="https://www.crunchyroll.com/pt-br/series/GY5P48XEY/demon-slayer-kimetsu-no-yaiba"
+                            target="_blank">Assistir</a>
+                    </div>
+
+                    <div class="card">
+                        <button class="fav">❤</button>
+                        <img src="PNGs/dragon ball z.png" alt="Dragon Ball Z">
+                        <h2>Dragon Ball Z</h2>
+                        <a class="btn" href="https://www.crunchyroll.com/pt-br/series/G8DHV7W21/dragon-ball-z"
+                            target="_blank">Assistir</a>
+                    </div>
+
+                </div>
+
+                <button class="arrow right">▶</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 AnimeWorld - Todos os direitos reservados</p>
+    </footer>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <img id="modalImg">
+
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+
+            <a id="modalLink" class="btn" target="_blank">Assistir agora</a>
+        </div>
+    </div>
+    <script>
+        const favRow = document.getElementById("favRow");
+        const allRow = document.getElementById("allRow");
+        /* =====================
+           TEMA CLARO/ESCURO
+        ===================== */
+        const btn = document.getElementById("themeToggle");
+
+        btn.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+
+            if (document.body.classList.contains("light-mode")) {
+                btn.textContent = "☀️";
+                localStorage.setItem("theme", "light");
+            } else {
+                btn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        });
+
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+            btn.textContent = "☀️";
+        }
+
+
+       
+
+
+
+        /*modal preview*/
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalLink = document.getElementById("modalLink");
+        const closeBtn = document.querySelector(".close");
+
+        const descriptions = {
+            "Naruto": "Um jovem ninja sonha em se tornar Hokage e proteger sua vila.",
+            "One Piece": "Luffy parte em busca do lendário tesouro One Piece.",
+            "Attack on Titan": "Humanidade luta para sobreviver contra titãs gigantes.",
+            "Demon Slayer": "Tanjiro caça demônios para salvar sua irmã.",
+            "Dragon Ball Z": "Goku e os guerreiros Z defendem a Terra de ameaças cósmicas."
+        };
+
+        document.querySelectorAll(".card").forEach(card => {
+            card.addEventListener("click", (e) => {
+                if (e.target.classList.contains("fav") || e.target.classList.contains("btn")) return;
+
+                const img = card.querySelector("img").src;
+                const title = card.querySelector("h2").textContent;
+                const link = card.querySelector(".btn").href;
+
+                modalImg.src = img;
+                modalTitle.textContent = title;
+                modalDesc.textContent = descriptions[title];
+                modalLink.href = link;
+
+                modal.classList.add("show");
+            });
+        });
+
+        closeBtn.onclick = () => modal.classList.remove("show");
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.classList.remove("show");
+        };
+
+        /* =====================
+   CARROSSEL
+===================== */
+
+        document.querySelectorAll(".carousel-wrapper").forEach(wrapper => {
+            const row = wrapper.querySelector(".row");
+            const left = wrapper.querySelector(".left");
+            const right = wrapper.querySelector(".right");
+
+            left.onclick = () => row.scrollLeft -= 300;
+            right.onclick = () => row.scrollLeft += 300;
+        });
+        favRow
+
+        /* =====================
+   FAVORITOS ❤️ (ÚNICO E LIMPO)
+===================== */
+
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        document.addEventListener("click", (e) => {
+            if (!e.target.classList.contains("fav")) return;
+
+            const btn = e.target;
+            const card = btn.closest(".card");
+            const name = card.querySelector("h2").textContent;
+
+            btn.classList.toggle("active");
+
+            if (favorites.includes(name)) {
+                favorites = favorites.filter(f => f !== name);
+            } else {
+                favorites.push(name);
+            }
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            updateFavoritesCarousel();
+        });
+
+        function updateFavoritesCarousel() {
+            favRow.innerHTML = "";
+            allRow.innerHTML = "";
+
+            document.querySelectorAll(".card").forEach(card => {
+                const name = card.querySelector("h2").textContent;
+                const btn = card.querySelector(".fav");
+
+                if (favorites.includes(name)) {
+                    btn.classList.add("active");
+                    favRow.appendChild(card);
+                } else {
+                    btn.classList.remove("active");
+                    allRow.appendChild(card);
+                }
+            });
+        }
+
+        updateFavoritesCarousel();
+    </script>
+
+</body>
+
+</html>

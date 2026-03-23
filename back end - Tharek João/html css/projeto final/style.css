@@ -1,0 +1,278 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.topo {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeDown 1s ease;
+}
+
+.topo h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+}
+
+.topo p {
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+/* BOTÃO */
+.btn-senac {
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-senac:hover {
+    transform: translateY(-3px);
+    background: #0ea5e9;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* GRADE DE CURSOS */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: block;
+
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    animation: fadeUp 0.8s ease both;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    background: #334155;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.card i {
+    font-size: 28px;
+    transition: transform 0.3s;
+}
+
+.card:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* BARRA DE BUSCA */
+.busca {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.busca input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 18px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+
+    background: #334155;
+    color: white;
+
+    transition: 0.3s;
+}
+
+.busca input:focus {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+/* FILTROS (busca + botão) */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filtros input {
+    padding: 12px 18px;
+    border-radius: 25px;
+    border: none;
+    background: #334155;
+    color: white;
+    width: 260px;
+}
+
+#sortBtn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+#sortBtn:hover {
+    transform: translateY(-2px);
+}
+
+/* FILTROS (busca + botão) */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filtros input {
+    padding: 12px 18px;
+    border-radius: 25px;
+    border: none;
+    background: #334155;
+    color: white;
+    width: 260px;
+}
+
+#sortBtn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+#sortBtn:hover {
+    transform: translateY(-2px);
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.categorias button {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: #334155;
+    color: white;
+    transition: 0.3s;
+}
+
+.categorias button:hover {
+    background: #38bdf8;
+    color: black;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card.hide {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+/*icones coloridos*/
+[data-cat="prog"] i { color: #38bdf8; }
+[data-cat="office"] i { color: #22c55e; }
+[data-cat="gestao"] i { color: #f59e0b; }

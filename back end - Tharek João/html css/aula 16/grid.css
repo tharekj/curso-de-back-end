@@ -1,0 +1,28 @@
+body {
+    font-family: arial, sans-serif;
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /*3 colunas iguais*/
+    gap: 15px;
+    /*espaçamento entre os itens*/
+    padding: 20px;
+}
+
+.item {
+    background-color: #4caf50;
+    color: white;
+    padding: 30px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+/*item que ocupa duas colunas*/
+.item-destaque {
+    grid-column: span 2;
+    background-color: #2196F3;
+}

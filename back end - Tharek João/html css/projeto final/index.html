@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TechFuture School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <h1>TechFuture School</h1>
+        <p>Formação prática em tecnologia e inovação</p>
+
+        <a class="btn-senac" href="https://ecommerce.mt.senac.br/buscar-cursos.php" target="_blank">
+            Ver cursos no Senac MT →
+        </a>
+    </header>
+
+
+    <main class="container">
+
+        <h2>Cursos Disponíveis</h2>
+
+        <div class="filtros">
+
+            <input type="text" id="searchInput" placeholder="🔎 Buscar curso...">
+
+            <button id="sortBtn">A → Z</button>
+
+        </div>
+
+        <div class="categorias">
+            <button data-cat="all">Todos</button>
+            <button data-cat="prog">Programação</button>
+            <button data-cat="office">Escritório</button>
+            <button data-cat="gestao">Gestão</button>
+        </div>
+
+        <section class="grade">
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1BTXhJVE4=" target="_blank"
+                rel="noopener" data-cat="prog">
+                <i class="fas fa-robot"></i>
+                <span>Programação para Robótica</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT13TXlJVE4=" target="_blank"
+                rel="noopener" data-cat="prog">
+                <i class="fas fa-code"></i>
+                <span>Criação de Web Sites</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1nTnlnRE4=" target="_blank"
+                rel="noopener" data-cat="office">
+                <i class="fas fa-file-excel"></i>
+                <span>Excel Básico e Avançado</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1RT3lnRE4=" target="_blank"
+                rel="noopener" data-cat="office">
+                <i class="fas fa-chart-line"></i>
+                <span>Excel Avançado</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1BT3lnRE4=" target="_blank"
+                rel="noopener" data-cat="office">
+                <i class="fas fa-desktop"></i>
+                <span>Informática Básica</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT13TnlnRE4=" target="_blank"
+                rel="noopener" data-cat="gestao">
+                <i class="fas fa-database"></i>
+                <span>Business Intelligence com Power BI</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT13TTBnRE4=" target="_blank"
+                rel="noopener" data-cat="prog">
+                <i class="fab fa-python"></i>
+                <span>Interface Gráfica em Python</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT13TnpJVE4=" target="_blank"
+                rel="noopener" data-cat="office">
+                <i class="fas fa-lightbulb"></i>
+                <span>Design Thinking</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1RTjFrRE4=" target="_blank"
+                rel="noopener" data-cat="gestao">
+                <i class="fas fa-key"></i>
+                <span>Gerenciamento de identidade e acesso (IAM)</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1RTnlnRE4=" target="_blank"
+                rel="noopener" data-cat="gestao">
+                <i class="fas fa-robot"></i>
+                <span>IA For Business - Inteligência Artificial Aplicada à Gestão</span>
+            </a>
+
+            <a class="card" href="https://ecommerce.mt.senac.br/curso.php?curso=PT1BTXpnRE4=" target="_blank"
+                rel="noopener" data-cat="office">
+                <i class="fas fa-robot"></i>
+                <span>Introdução à IA: Inteligência Artificial na Prática</span>
+            </a>    
+        </section>
+    </main>
+
+
+    <footer>
+        <p>© 2026 TechFuture School • Educação em Tecnologia</p>
+    </footer>
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".card");
+        const sortBtn = document.getElementById("sortBtn");
+        const grade = document.querySelector(".grade");
+
+        function mostrarComStagger(cardsVisiveis) {
+            cardsVisiveis.forEach((card, i) => {
+                card.style.display = "flex";
+
+                setTimeout(() => {
+                    card.classList.remove("hide");
+                    card.classList.add("show");
+                }, i * 80); // ← tempo entre cada card (80ms)
+            });
+        }
+
+        /* BUSCA */
+        searchInput.addEventListener("keyup", function () {
+            const texto = searchInput.value.toLowerCase();
+
+            cards.forEach(card => {
+                const nome = card.innerText.toLowerCase();
+                card.style.display = nome.includes(texto) ? "flex" : "none";
+            });
+        });
+
+        /* ORDENAÇÃO A → Z */
+        sortBtn.addEventListener("click", () => {
+            const lista = [...document.querySelectorAll(".card")];
+
+            lista
+                .sort((a, b) => a.innerText.localeCompare(b.innerText))
+                .forEach(card => grade.appendChild(card));
+        });
+    </script>
+    <script>
+        const botoes = document.querySelectorAll(".categorias button");
+        const cardsCat = document.querySelectorAll(".card");
+
+        botoes.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const cat = btn.dataset.cat;
+                const visiveis = [];
+
+                cardsCat.forEach(card => {
+                    if (cat === "all" || card.dataset.cat === cat) {
+                        visiveis.push(card);
+                    } else {
+                        card.classList.remove("show");
+                        card.classList.add("hide");
+                        setTimeout(() => card.style.display = "none", 300);
+                    }
+                });
+
+                mostrarComStagger(visiveis);
+            });
+        });
+    </script>
+</body>
+
+</html>

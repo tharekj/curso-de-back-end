@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 14 sobre css</title>
+    <style>
+        .relative-box {
+            position: relative;
+            left: 0px;
+            top:36px;
+            background-color: lightblue;
+            width: 150px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 0px;
+            left: 08px;
+            background-color: lightcoral;
+            width: 150px;
+
+        }
+
+        .fixed-box {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: lightgreen;
+            width: 150px;
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 10px;
+            background-color: lightgoldenrodyellow;
+            width: 150px;
+
+        }
+
+        .float-container {
+            width: 70%;
+            margin: 0 auto;
+            border: 1px solid black;
+            overflow: auto;
+            /*garante que o container encapsule o elemento flutuante*/
+        }
+
+        .float-box {
+            float: left;
+            margin-right: 20px;
+            background-color: lightpink;
+            width: 100px;
+            height: 100px;
+
+
+        }
+
+        .clear-box {
+            clear: left;
+            background-color: lightgray;
+        }
+
+        .z-index-box1 {
+            position: absolute;
+            top: 250px;
+            left: 100px;
+            background-color: rgba(173, 216, 230, 0.7);
+            /*lightblue com opacidade*/
+            z-index: 1;
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .z-index-box2 {
+            position: absolute;
+            top: 290px;
+            left: 140px;
+            background-color: rgba(240, 128, 128, 0.7);
+            /*lightcoral com opacidade*/
+            z-index: 2;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="relative-box">relative</div>
+    <div class="absolute-box">absolute</div>
+    <div class="fixed-box">fixed</div>
+    <div class="sticky-box">sticky</div>
+    <div class="float container">
+        <div class="float-box">float</div>
+        <p>este é um texto que flui ao redor do elemento flutuante. experimente redimencionar a janela e observe como o
+            texto se reorganiza</p>
+
+        <div class="clear-box">lemento com clear</div>
+
+    </div>
+    <div class="z-index-box1">z index 1</div>
+    <div class="z-index-box2">z index 2</div>
+
+</body>
+</head>

@@ -1,0 +1,53 @@
+.flex-container {
+    display: flex;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+.flex-item {
+    padding: 20px;
+    background-color: lightblue;
+    margin: 5px;
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+.flex-container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item:nth-child(1) {
+    flex: 2;
+    background-color: lightcoral;
+}
+
+.flex-item:nth-child(2) {
+    flex: 1;
+    background-color: lightgreen;
+}
+
+.flex-item:nth-child(3) {
+    flex: 1;
+    background-color: lightgoldenrodyellow;
+}
+
+.flex-container {
+    flex-direction: column;
+    /*os itens são posicionados em coluna*/
+
+    flex-wrap: wrap;
+    /*se não houver espaço os itens podem ser quebados para a proxima 'linha'*/
+
+    height: 300px;
+    /*define uma altura para visualizar o warp*/
+}
+
+.flex-item {
+    flex-grow: 1;
+    flex-basis: 60px;
+    transition: all 0.3s ease;/*adiciona uma transição para visualizar mudanças*/
+}
+.flex-item:hover {
+    background-color: lavender; /*altera a cor de fundo ao passar o mouse*/
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <header>
+        <h1>Inscrição Curso Back-End</h1><br><br>
+        <img src="codigos em uma tela.png" alt="Desenvolvimento Back-End" width="300" height="200">
+
+
+    </header>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .checkbox {
+            cursor: pointer;
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <h2>Curso de Back-End</h2>
+
+        <label>Nome completo</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Telefone</label>
+        <input type="tel">
+
+        <label>Idade</label>
+        <input type="number" min="14" max="116">
+
+        <label>Linguagem de interesse</label>
+        <select class="Linguagem">
+            <option>JavaScript (Node.js)</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>PHP</option>
+            <option>C#</option>
+        </select>
+
+        <label>Nível de conhecimento</label>
+        <select>
+            <option>Iniciante</option>
+            <option>Intermediário</option>
+            <option>Avançado</option>
+        </select>
+
+        <label>Experiência prévia</label>
+        <textarea rows="3" placeholder="Conte um pouco sobre sua experiência..."></textarea>
+
+        <label>
+            <input type="checkbox" required class="checkbox">
+            Concordo com os termos do curso
+        </label>
+
+        <button type="submit">Enviar inscrição</button>
+    </form>
+
+</body>
+
+</html>
